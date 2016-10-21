@@ -26,11 +26,10 @@ cv::Mat trans_x(double x_offset, double y_offset, double z_offset, double yaw_of
         for (int u = 0; u <= 1241; u++){
             //x = (int)velo_dense.at<cv::Vec3b>(v,u)[0]*0.256;
             x = (double)velo_dense.at<cv::Vec3b>(v,u)[0] + (double)velo_dense.at<cv::Vec3b>(v,u)[1]/100 + (double)velo_dense.at<cv::Vec3b>(v,u)[2]/10000;// x means depth
-            if ( u == 0 && v == 0 )
-                std::cout << x << std::endl;
+            //if ( u == 0 && v == 0 )
+            //    std::cout << x << std::endl;
             y = (u-cx)*x/fx; // means right direction
             z = (v-cy)*x/fy; // means up direction
-
             x_new = x - x_offset;
             y_new = y - y_offset;
             z_new = z + z_offset;
