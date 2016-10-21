@@ -7,10 +7,14 @@
 #include <iostream>
 #include <string>
 #include "zhi_transformation_x.h"
+#include <QtSql/QSqlDatabase>
+#include <QtSql/QSqlQuery>
 
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
+
+
     MainWindow w;
     ControlWindow c;
     w.show();
