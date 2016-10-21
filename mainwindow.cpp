@@ -24,7 +24,7 @@ MainWindow::MainWindow(QWidget *parent) :
     zeroString = "0";
     frame = 0;
     timer=new QTimer(this);
-    timer->start(100);
+    timer->start(50);
     connect(timer,SIGNAL(timeout()),this,SLOT(imageAnimation()));
 
 
@@ -35,8 +35,8 @@ void MainWindow::setyoffset(float val){
 }
 
 void MainWindow::imageAnimation(){
-    y_offset += 0.02;
-    yaw_offset += 0.2;
+    y_offset += 0.04;
+    //yaw_offset += 0.2;
     std::cout<< frame << std::endl;
     imgFrame = std::to_string( frame );
     std::string depthPath = "../gui/data/depthRGB/"+imgFrame+".png";
@@ -60,12 +60,12 @@ void MainWindow::imageAnimation(){
     ui->QImgShow->setPixmap(QPixmap::fromImage(image).scaled(ui->QImgShow->size()));
 
     //cv::waitKey(10);
-    frame++;
+    //frame++;
     if(frame > 296){
         frame = 0;
     }
-    update();
 
+    update();
 }
 
 MainWindow::~MainWindow()
